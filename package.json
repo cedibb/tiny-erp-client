@@ -6,18 +6,16 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "npm run build:types && esbuild ./src --platform=node --format=cjs --bundle --minify --outfile=dist/index.js",
-    "build:types": "tsc --emitDeclarationOnly",
-    "start": "npm run build && node dist",
-    "typecheck": "tsc --noEmit"
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Carlos Dibb",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "devDependencies": {
     "@eslint/js": "^9.2.0",
-    "esbuild": "^0.21.1",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
