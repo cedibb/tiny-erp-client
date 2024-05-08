@@ -9,9 +9,9 @@ class TinyERPClient {
   }
 
   private async request<T extends BaseParams, R extends BaseResponse>(
-    method: string,
     endpoint: string,
     data?: T,
+    method: string = 'GET',
   ): Promise<R> {
     try {
       const response = await fetch(`${this.baseUrl}/${endpoint}.php`, {
@@ -39,8 +39,7 @@ class TinyERPClient {
   }
 
   getAccountInfo(data: AccountInfoParams): Promise<AccountInfoResponse> {
-    const params = new URLSearchParams(data).toString();
-    return this.request('POST', 'info', params);
+    return this.request('info', data);
   }
 }
 
