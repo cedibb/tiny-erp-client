@@ -1,5 +1,14 @@
 import { AccountInfoResponse, AccountInfoParams, BaseParams, BaseResponse, ProcessingStatus } from './types';
 
+class APIError extends Error {
+  public response: BaseResponse;
+
+  constructor(message: string, response: BaseResponse) {
+    super(message);
+    this.response = response;
+  }
+}
+
 class TinyERPClient {
   private token: string;
   private baseUrl: string = 'https://api.tiny.com.br/api2';
@@ -19,9 +28,9 @@ class TinyERPClient {
       const responseBody: R = await response.json();
 
       // This is done because the API returns a 200 status code even when there's an error.
-      if (responseBody.retorno.status_processamento !== ProcessingStatus.ProcessedSuccessfully) {
+      if (responseBody.retorno.status === 'Erro') {
         console.error(`API request failed: ${responseBody.retorno.status}`);
-        throw new Error(responseBody.retorno.erros?.map((error) => error.erro).join(', '));
+        throw new APIError(responseBody.retorno.erros!.map((error) => error.erro).join(', '), responseBody);
       }
 
       return responseBody;
