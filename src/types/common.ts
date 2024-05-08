@@ -41,9 +41,9 @@ export interface BaseParams {
 
 export interface BaseResponse {
   retorno: {
-    status_processamento: number;
+    status_processamento: ProcessingStatus;
     status: string;
-    codigo_erro?: number;
+    codigo_erro?: ErrorCodes;
     erros?: Error[];
   };
 }

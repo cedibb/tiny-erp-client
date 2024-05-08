@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "strict": true,
-    "lib": ["ES2015", "DOM"]
+    "lib": ["ES2015", "DOM"],
+    "declaration": true,
+    "declarationDir": "./dist"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

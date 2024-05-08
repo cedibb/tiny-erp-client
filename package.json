@@ -1,11 +1,13 @@
 {
   "name": "tiny-erp-client",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "npm run typecheck && esbuild ./src/client --platform=node --format=cjs --bundle --minify --outfile=dist/index.js --sourcemap",
+    "build": "npm run build:types && esbuild ./src --platform=node --format=cjs --bundle --minify --outfile=dist/index.js",
+    "build:types": "tsc --emitDeclarationOnly",
     "start": "npm run build && node dist",
     "typecheck": "tsc --noEmit"
   },

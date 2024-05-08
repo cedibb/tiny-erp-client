@@ -1,27 +1,20 @@
 import { AccountInfoResponse, AccountInfoParams, BaseParams, BaseResponse, ProcessingStatus } from './types';
 
 class TinyERPClient {
-  private apiKey: string;
-  private readonly baseUrl: string = 'https://api.tiny.com.br/api2';
+  private token: string;
+  private baseUrl: string = 'https://api.tiny.com.br/api2';
 
-  constructor(apiKey: string) {
-    this.apiKey = apiKey;
+  constructor(token: string) {
+    this.token = token;
   }
 
-  private async request<T extends BaseParams, R extends BaseResponse>(
-    endpoint: string,
-    data?: T,
-    method: string = 'GET',
-  ): Promise<R> {
+  private async request<T extends BaseParams, R extends BaseResponse>(endpoint: string, data?: T): Promise<R> {
     try {
-      const response = await fetch(`${this.baseUrl}/${endpoint}.php`, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${this.apiKey}`,
-        },
-        body: data ? JSON.stringify(data) : undefined,
-      });
+      const requestData = { ...data, token: this.token, formato: 'JSON' };
+
+      const params = new URLSearchParams(requestData).toString();
+
+      const response = await fetch(`${this.baseUrl}/${endpoint}.php?${params}`);
 
       const responseBody: R = await response.json();
 
@@ -38,9 +31,9 @@ class TinyERPClient {
     }
   }
 
-  getAccountInfo(data: AccountInfoParams): Promise<AccountInfoResponse> {
+  getAccountInfo(data?: AccountInfoParams): Promise<AccountInfoResponse> {
     return this.request('info', data);
   }
 }
 
-export default TinyERPClient;
+export { TinyERPClient };
