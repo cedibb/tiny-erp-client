@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "npm run typecheck && esbuild ./src --platform=node --format=cjs --bundle --minify --outfile=dist/index.js --sourcemap",
+    "build": "npm run typecheck && esbuild ./src/client --platform=node --format=cjs --bundle --minify --outfile=dist/index.js --sourcemap",
     "start": "npm run build && node dist",
     "typecheck": "tsc --noEmit"
   },
