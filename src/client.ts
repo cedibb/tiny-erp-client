@@ -1,4 +1,4 @@
-import { AccountInfoResponse, BaseParams, BaseResponse } from './types';
+import type { AccountInfoResponse, BaseParams, BaseResponse, SearchOrdersParams, SearchOrdersResponse } from './types';
 
 class APIError extends Error {
   public retorno: BaseResponse['retorno'];
@@ -42,6 +42,10 @@ class TinyERPClient {
 
   getAccountInfo(): Promise<AccountInfoResponse> {
     return this.request('info');
+  }
+
+  searchOrders(params: SearchOrdersParams): Promise<SearchOrdersResponse> {
+    return this.request<SearchOrdersParams, SearchOrdersResponse>('pedidos.pesquisa', params);
   }
 }
 
