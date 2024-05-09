@@ -1,4 +1,4 @@
-import { BaseParams, BaseResponse } from './common';
+import { BaseResponse } from './common';
 
 export enum TaxRegimes {
   SimplesNacional = 'Simples Nacional',
@@ -22,8 +22,6 @@ export interface Account {
   inscricao_estadual: string;
   regime_tributario: TaxRegimes;
 }
-
-export interface AccountInfoParams extends BaseParams {}
 
 export interface AccountInfoResponse extends BaseResponse {
   retorno: BaseResponse['retorno'] & {

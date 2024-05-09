@@ -1,11 +1,11 @@
-import { AccountInfoResponse, AccountInfoParams, BaseParams, BaseResponse, ProcessingStatus } from './types';
+import { AccountInfoResponse, BaseParams, BaseResponse } from './types';
 
 class APIError extends Error {
-  public response: BaseResponse;
+  public retorno: BaseResponse['retorno'];
 
   constructor(message: string, response: BaseResponse) {
     super(message);
-    this.response = response;
+    this.retorno = response.retorno;
   }
 }
 
@@ -40,8 +40,8 @@ class TinyERPClient {
     }
   }
 
-  getAccountInfo(data?: AccountInfoParams): Promise<AccountInfoResponse> {
-    return this.request('info', data);
+  getAccountInfo(): Promise<AccountInfoResponse> {
+    return this.request('info');
   }
 }
 
