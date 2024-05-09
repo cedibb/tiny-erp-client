@@ -40,5 +40,7 @@ export interface BaseResponse {
     status: 'Ok' | 'Erro';
     codigo_erro?: ErrorCodes;
     erros?: Error[];
+    pagina?: number;
+    numero_paginas?: number;
   };
 }
