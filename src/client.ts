@@ -1,4 +1,4 @@
-import type { AccountInfoResponse, BaseParams, BaseResponse, SearchOrdersParams, SearchOrdersResponse } from './types';
+import type { AccountInfoResponse, BaseResponse, SearchOrdersParams, SearchOrdersResponse } from './types';
 
 class APIError extends Error {
   public retorno: BaseResponse['retorno'];
@@ -17,7 +17,7 @@ class TinyERPClient {
     this.token = token;
   }
 
-  private async request<T extends BaseParams, R extends BaseResponse>(endpoint: string, data?: T): Promise<R> {
+  private async request<T, R extends BaseResponse>(endpoint: string, data?: T): Promise<R> {
     try {
       const requestData = { ...data, token: this.token, formato: 'JSON' };
 

@@ -1,8 +1,3 @@
-export interface BaseParams {
-  token: string;
-  formato: 'JSON' | 'XML';
-}
-
 export enum ProcessingStatus {
   NotProcessed = 1,
   ProcessedWithValidationErrors = 2,

@@ -1,4 +1,4 @@
-import { BaseParams, BaseResponse } from './common';
+import { BaseResponse } from './common';
 
 enum OrderStatus {
   EmAberto = 'aberto',
@@ -12,7 +12,7 @@ enum OrderStatus {
   Cancelado = 'cancelado',
 }
 
-export interface SearchOrdersParams extends BaseParams {
+export interface SearchOrdersParams {
   numero?: string;
   cliente?: string;
   cpf_cnpj?: string;
