@@ -115,6 +115,10 @@ export interface SearchProductsParams {
   dataCriacao?: string;
 }
 
+export interface GetProductParams {
+  id: number;
+}
+
 export interface SearchProductsResponse extends BaseResponse {
   retorno: BaseResponse['retorno'] & {
     produtos?: Product[];

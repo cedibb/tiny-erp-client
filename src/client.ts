@@ -11,6 +11,10 @@ import type {
   GetClientResponse,
   AddClientResponse,
   UpdateClientResponse,
+  SearchProductsParams,
+  GetProductParams,
+  SearchProductsResponse,
+  GetProductResponse,
 } from './types';
 
 class TinyERPClient {
@@ -65,6 +69,14 @@ class TinyERPClient {
 
   updateClient(params: UpdateClientParams): Promise<UpdateClientResponse> {
     return this.request<UpdateClientParams, UpdateClientResponse>('cliente.atualizar', params);
+  }
+
+  searchProducts(params: SearchProductsParams): Promise<SearchProductsResponse> {
+    return this.request<SearchProductsParams, SearchProductsResponse>('clientes.pesquisa', params);
+  }
+
+  getProduct(params: GetProductParams): Promise<GetProductResponse> {
+    return this.request<GetProductParams, GetProductResponse>('cliente', params);
   }
 }
 
