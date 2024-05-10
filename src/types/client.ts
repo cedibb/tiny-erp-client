@@ -82,9 +82,7 @@ export interface DetailedClient extends Client {
 }
 
 export interface SearchClientsParams {
-  token: string;
   pesquisa: string;
-  formato: string;
   cpf_cnpj?: string;
   idVendedor?: number;
   nomeVendedor?: string;

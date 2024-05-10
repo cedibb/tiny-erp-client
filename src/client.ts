@@ -1,4 +1,17 @@
-import type { AccountInfoResponse, BaseResponse, SearchOrdersParams, SearchOrdersResponse } from './types';
+import type {
+  BaseResponse,
+  SearchOrdersParams,
+  SearchOrdersResponse,
+  AccountInfoResponse,
+  SearchClientsParams,
+  GetClientParams,
+  ClientAddParams,
+  UpdateClientParams,
+  SearchClientsResponse,
+  GetClientResponse,
+  AddClientResponse,
+  UpdateClientResponse,
+} from './types';
 
 class TinyERPClient {
   private token: string;
@@ -31,6 +44,22 @@ class TinyERPClient {
 
   searchOrders(params: SearchOrdersParams): Promise<SearchOrdersResponse> {
     return this.request<SearchOrdersParams, SearchOrdersResponse>('pedidos.pesquisa', params);
+  }
+
+  searchClients(params: SearchClientsParams): Promise<SearchClientsResponse> {
+    return this.request<SearchClientsParams, SearchClientsResponse>('clientes.pesquisa', params);
+  }
+
+  getClient(params: GetClientParams): Promise<GetClientResponse> {
+    return this.request<GetClientParams, GetClientResponse>('cliente', params);
+  }
+
+  addClient(params: ClientAddParams): Promise<AddClientResponse> {
+    return this.request<ClientAddParams, AddClientResponse>('cliente.adicionar', params);
+  }
+
+  updateClient(params: UpdateClientParams): Promise<UpdateClientResponse> {
+    return this.request<UpdateClientParams, UpdateClientResponse>('cliente.atualizar', params);
   }
 }
 
