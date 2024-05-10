@@ -1,6 +1,6 @@
 import { BaseResponse } from './common';
 
-enum OrderStatus {
+export enum OrderStatus {
   EmAberto = 'aberto',
   Aprovado = 'aprovado',
   PreparandoEnvio = 'preparando_envio',

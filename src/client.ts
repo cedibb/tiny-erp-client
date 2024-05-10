@@ -5,7 +5,7 @@ import type {
   AccountInfoResponse,
   SearchClientsParams,
   GetClientParams,
-  ClientAddParams,
+  AddClientParams,
   UpdateClientParams,
   SearchClientsResponse,
   GetClientResponse,
@@ -31,6 +31,11 @@ class TinyERPClient {
 
       const responseBody: R = await response.json();
 
+      if (responseBody.retorno.status === 'Erro') {
+        const errorMessage = responseBody.retorno.erros!.map((e) => e.erro).join(', ');
+        throw new Error(errorMessage);
+      }
+
       return responseBody;
     } catch (error) {
       console.error(`Failed to make request: ${error}`);
@@ -54,8 +59,8 @@ class TinyERPClient {
     return this.request<GetClientParams, GetClientResponse>('cliente', params);
   }
 
-  addClient(params: ClientAddParams): Promise<AddClientResponse> {
-    return this.request<ClientAddParams, AddClientResponse>('cliente.adicionar', params);
+  addClient(params: AddClientParams): Promise<AddClientResponse> {
+    return this.request<AddClientParams, AddClientResponse>('cliente.adicionar', params);
   }
 
   updateClient(params: UpdateClientParams): Promise<UpdateClientResponse> {
