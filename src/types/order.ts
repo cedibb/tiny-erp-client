@@ -45,7 +45,7 @@ export interface Order {
   codigo_rastreamento: string;
 }
 
-export interface SearchOrdersResponse extends BaseResponse {
+export interface SearchOrdersResponse {
   retorno: BaseResponse['retorno'] & {
     pedidos?: { pedido: Order }[];
   };
