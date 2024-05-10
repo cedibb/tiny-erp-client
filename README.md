@@ -9,22 +9,25 @@ Here's an example of how to use the `TinyERPClient`:
 ```typescript
 import { TinyERPClient } from './client';
 
-const client = new TinyERPClient('your-token-here');
+const apiClient = new TinyERPClient('your-token-here');
+
+// Get account info
+const accountInfo = await apiClient.getAccountInfo();
 
 // Search for orders
-const orders = await client.searchOrders({ ... });
+const orders = await apiClient.searchOrders({ ... });
 
 // Search for clients
-const clients = await client.searchClients({ ... });
+const clients = await apiClient.searchClients({ ... });
 
 // Get client information
-const clientInfo = await client.getClient({ ... });
+const clientInfo = await apiClient.getClient({ ... });
 
 // Add a new client
-const newClient = await client.addClient({ ... });
+const newClient = await apiClient.addClient({ ... });
 
 // Update an existing client
-const updatedClient = await client.updateClient({ ... });
+const updatedClient = await apiClient.updateClient({ ... });
 ```
 
 ## Implementation Progress
