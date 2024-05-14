@@ -34,7 +34,6 @@ class TinyERPClient {
       const response = await fetch(`${this.baseUrl}/${endpoint}.php?${params}`);
 
       const responseBody: R = await response.json();
-
       if (responseBody.retorno.status === 'Erro') {
         const errorMessage = responseBody.retorno.erros!.map((e) => e.erro).join(', ');
         throw new Error(errorMessage);
@@ -56,27 +55,27 @@ class TinyERPClient {
   }
 
   searchClients(params: SearchClientsParams): Promise<SearchClientsResponse> {
-    return this.request<SearchClientsParams, SearchClientsResponse>('clientes.pesquisa', params);
+    return this.request<SearchClientsParams, SearchClientsResponse>('contatos.pesquisa', params);
   }
 
   getClient(params: GetClientParams): Promise<GetClientResponse> {
-    return this.request<GetClientParams, GetClientResponse>('cliente', params);
+    return this.request<GetClientParams, GetClientResponse>('contato.obter', params);
   }
 
   addClient(params: AddClientParams): Promise<AddClientResponse> {
-    return this.request<AddClientParams, AddClientResponse>('cliente.adicionar', params);
+    return this.request<AddClientParams, AddClientResponse>('contato.adicionar', params);
   }
 
   updateClient(params: UpdateClientParams): Promise<UpdateClientResponse> {
-    return this.request<UpdateClientParams, UpdateClientResponse>('cliente.atualizar', params);
+    return this.request<UpdateClientParams, UpdateClientResponse>('contato.atualizar', params);
   }
 
   searchProducts(params: SearchProductsParams): Promise<SearchProductsResponse> {
-    return this.request<SearchProductsParams, SearchProductsResponse>('clientes.pesquisa', params);
+    return this.request<SearchProductsParams, SearchProductsResponse>('produtos.pesquisa', params);
   }
 
   getProduct(params: GetProductParams): Promise<GetProductResponse> {
-    return this.request<GetProductParams, GetProductResponse>('cliente', params);
+    return this.request<GetProductParams, GetProductResponse>('produto.obter', params);
   }
 }
 
