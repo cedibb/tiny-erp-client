@@ -4,8 +4,6 @@ This project provides a TypeScript client for interacting with the TinyERP API.
 
 ## Usage
 
-Here's an example of how to use the `TinyERPClient`:
-
 ```typescript
 import { TinyERPClient } from './client';
 
@@ -30,9 +28,7 @@ const newClient = await apiClient.addClient({ ... });
 const updatedClient = await apiClient.updateClient({ ... });
 ```
 
-## Implementation Progress
-
-Here's a checklist of services and their implementation status:
+## Service Implementation Progress
 
 - ~~Account Data (Dados da conta)~~
 
