@@ -336,7 +336,7 @@ export interface SearchOrdersParams {
 }
 
 export interface GetOrderParams {
-  id: number;
+  id: string;
 }
 
 interface DetailedOrder {

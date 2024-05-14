@@ -21,7 +21,7 @@ export interface Contact {
   departamento: string;
 }
 
-export interface Client {
+export interface Customer {
   id: number;
   codigo: string;
   nome: string;
@@ -44,7 +44,7 @@ export interface Client {
   data_criacao: string;
 }
 
-export interface DetailedClient extends Client {
+export interface DetailedCustomer extends Customer {
   endereco_cobranca: string;
   numero_cobranca: string;
   complemento_cobranca: string;
@@ -81,7 +81,7 @@ export interface DetailedClient extends Client {
   pessoas_contato: Contact[];
 }
 
-export interface SearchClientsParams {
+export interface SearchCustomersParams {
   pesquisa: string;
   cpf_cnpj?: string;
   idVendedor?: number;
@@ -92,11 +92,11 @@ export interface SearchClientsParams {
   dataMinimaAtualizacao?: string;
 }
 
-export interface GetClientParams {
-  id: number;
+export interface GetCustomerParams {
+  id: string;
 }
 
-export interface ClientAddParams {
+export interface CustomerAddParams {
   sequencia: string;
   codigo: string;
   nome: string;
@@ -124,7 +124,7 @@ export interface ClientAddParams {
   contribuinte: string;
 }
 
-interface ClientUpdateParams {
+interface CustomerUpdateParams {
   sequencia: number;
   id?: number;
   codigo?: string;
@@ -184,33 +184,33 @@ export interface Record {
   id?: string;
 }
 
-export interface AddClientParams {
-  contato: ClientAddParams;
+export interface AddCustomerParams {
+  contato: CustomerAddParams;
 }
 
-export interface UpdateClientParams {
-  contato: ClientUpdateParams;
+export interface UpdateCustomerParams {
+  contato: CustomerUpdateParams;
 }
 
-export interface SearchClientsResponse {
+export interface SearchCustomersResponse {
   retorno: BaseResponse['retorno'] & {
-    contatos?: { contato: Client }[];
+    contatos?: { contato: Customer }[];
   };
 }
 
-export interface GetClientResponse {
+export interface GetCustomerResponse {
   retorno: BaseResponse['retorno'] & {
-    contato: DetailedClient;
+    contato: DetailedCustomer;
   };
 }
 
-export interface AddClientResponse {
+export interface AddCustomerResponse {
   retorno: BaseResponse['retorno'] & {
     registros?: Record[];
   };
 }
 
-export interface UpdateClientResponse {
+export interface UpdateCustomerResponse {
   retorno: BaseResponse['retorno'] & {
     registros?: Record[];
   };

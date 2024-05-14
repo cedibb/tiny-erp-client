@@ -3,10 +3,10 @@ import { describe, expect, it, jest, beforeEach } from '@jest/globals';
 import {
   SearchOrdersParams,
   OrderStatus,
-  SearchClientsParams,
-  GetClientParams,
-  AddClientParams,
-  UpdateClientParams,
+  SearchCustomersParams,
+  GetCustomerParams,
+  AddCustomerParams,
+  UpdateCustomerParams,
 } from '../types';
 
 describe('TinyERPClient', () => {
@@ -49,9 +49,9 @@ describe('TinyERPClient', () => {
     expect(response).toEqual(mockResponse);
   });
 
-  it('searchClients', async () => {
+  it('searchCustomers', async () => {
     const mockResponse = { retorno: { status: 'Ok', data: {} } };
-    const mockParams: SearchClientsParams = {
+    const mockParams: SearchCustomersParams = {
       pesquisa: 'test',
       cpf_cnpj: '12345678901',
       idVendedor: 1,
@@ -66,27 +66,27 @@ describe('TinyERPClient', () => {
       json: () => Promise.resolve(mockResponse),
     } as Response);
 
-    const response = await client.searchClients(mockParams);
+    const response = await client.searchCustomers(mockParams);
     expect(response).toEqual(mockResponse);
   });
 
-  it('getClient', async () => {
+  it('getCustomer', async () => {
     const mockResponse = { retorno: { status: 'Ok', data: {} } };
-    const mockParams: GetClientParams = {
-      id: 1,
+    const mockParams: GetCustomerParams = {
+      id: '1',
     };
 
     (global.fetch as jest.MockedFunction<typeof fetch>).mockResolvedValueOnce({
       json: () => Promise.resolve(mockResponse),
     } as Response);
 
-    const response = await client.getClient(mockParams);
+    const response = await client.getCustomer(mockParams);
     expect(response).toEqual(mockResponse);
   });
 
-  it('addClient', async () => {
+  it('addCustomer', async () => {
     const mockResponse = { retorno: { status: 'Ok', data: {} } };
-    const mockParams: AddClientParams = {
+    const mockParams: AddCustomerParams = {
       contato: {
         sequencia: '1',
         codigo: 'test',
@@ -120,13 +120,13 @@ describe('TinyERPClient', () => {
       json: () => Promise.resolve(mockResponse),
     } as Response);
 
-    const response = await client.addClient(mockParams);
+    const response = await client.addCustomer(mockParams);
     expect(response).toEqual(mockResponse);
   });
 
-  it('updateClient', async () => {
+  it('updateCustomer', async () => {
     const mockResponse = { retorno: { status: 'Ok', data: {} } };
-    const mockParams: UpdateClientParams = {
+    const mockParams: UpdateCustomerParams = {
       contato: {
         sequencia: 1,
         nome: 'Updated Test Client',
@@ -137,7 +137,7 @@ describe('TinyERPClient', () => {
       json: () => Promise.resolve(mockResponse),
     } as Response);
 
-    const response = await client.updateClient(mockParams);
+    const response = await client.updateCustomer(mockParams);
     expect(response).toEqual(mockResponse);
   });
 

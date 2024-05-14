@@ -5,18 +5,22 @@ import type {
   SearchOrdersParams,
   SearchOrdersResponse,
   AccountInfoResponse,
-  SearchClientsParams,
-  GetClientParams,
-  AddClientParams,
-  UpdateClientParams,
-  SearchClientsResponse,
-  GetClientResponse,
-  AddClientResponse,
-  UpdateClientResponse,
+  SearchCustomersParams,
+  GetCustomerParams,
+  AddCustomerParams,
+  UpdateCustomerParams,
+  SearchCustomersResponse,
+  GetCustomerResponse,
+  AddCustomerResponse,
+  UpdateCustomerResponse,
   SearchProductsParams,
   GetProductParams,
   SearchProductsResponse,
   GetProductResponse,
+  GetInvoiceParams,
+  GetInvoiceResponse,
+  SearchInvoicesParams,
+  SearchInvoicesResponse,
 } from './types';
 
 class TinyERPClient {
@@ -52,21 +56,21 @@ class TinyERPClient {
     return this.request('info');
   }
 
-  //CLIENTS
-  searchClients(params: SearchClientsParams): Promise<SearchClientsResponse> {
-    return this.request<SearchClientsParams, SearchClientsResponse>('contatos.pesquisa', params);
+  //CUSTOMERS
+  searchCustomers(params: SearchCustomersParams): Promise<SearchCustomersResponse> {
+    return this.request<SearchCustomersParams, SearchCustomersResponse>('contatos.pesquisa', params);
   }
 
-  getClient(params: GetClientParams): Promise<GetClientResponse> {
-    return this.request<GetClientParams, GetClientResponse>('contato.obter', params);
+  getCustomer(params: GetCustomerParams): Promise<GetCustomerResponse> {
+    return this.request<GetCustomerParams, GetCustomerResponse>('contato.obter', params);
   }
 
-  addClient(params: AddClientParams): Promise<AddClientResponse> {
-    return this.request<AddClientParams, AddClientResponse>('contato.adicionar', params);
+  addCustomer(params: AddCustomerParams): Promise<AddCustomerResponse> {
+    return this.request<AddCustomerParams, AddCustomerResponse>('contato.adicionar', params);
   }
 
-  updateClient(params: UpdateClientParams): Promise<UpdateClientResponse> {
-    return this.request<UpdateClientParams, UpdateClientResponse>('contato.atualizar', params);
+  updateCustomer(params: UpdateCustomerParams): Promise<UpdateCustomerResponse> {
+    return this.request<UpdateCustomerParams, UpdateCustomerResponse>('contato.atualizar', params);
   }
 
   //PRODUCTS
@@ -85,6 +89,15 @@ class TinyERPClient {
 
   getOrder(params: GetOrderParams): Promise<GetOrderResponse> {
     return this.request<GetOrderParams, GetOrderResponse>('pedido.obter', params);
+  }
+
+  //INVOICES
+  searchInvoices(params: SearchInvoicesParams): Promise<SearchInvoicesResponse> {
+    return this.request<SearchInvoicesParams, SearchInvoicesResponse>('notas.fiscais.pesquisa', params);
+  }
+
+  getInvoice(params: GetInvoiceParams): Promise<GetInvoiceResponse> {
+    return this.request<GetInvoiceParams, GetInvoiceResponse>('nota.fiscal.obter', params);
   }
 }
 
