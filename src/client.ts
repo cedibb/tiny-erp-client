@@ -1,5 +1,7 @@
 import type {
   BaseResponse,
+  GetOrderParams,
+  GetOrderResponse,
   SearchOrdersParams,
   SearchOrdersResponse,
   AccountInfoResponse,
@@ -50,10 +52,7 @@ class TinyERPClient {
     return this.request('info');
   }
 
-  searchOrders(params: SearchOrdersParams): Promise<SearchOrdersResponse> {
-    return this.request<SearchOrdersParams, SearchOrdersResponse>('pedidos.pesquisa', params);
-  }
-
+  //CLIENTS
   searchClients(params: SearchClientsParams): Promise<SearchClientsResponse> {
     return this.request<SearchClientsParams, SearchClientsResponse>('contatos.pesquisa', params);
   }
@@ -70,12 +69,22 @@ class TinyERPClient {
     return this.request<UpdateClientParams, UpdateClientResponse>('contato.atualizar', params);
   }
 
+  //PRODUCTS
   searchProducts(params: SearchProductsParams): Promise<SearchProductsResponse> {
     return this.request<SearchProductsParams, SearchProductsResponse>('produtos.pesquisa', params);
   }
 
   getProduct(params: GetProductParams): Promise<GetProductResponse> {
     return this.request<GetProductParams, GetProductResponse>('produto.obter', params);
+  }
+
+  //ORDERS
+  searchOrders(params: SearchOrdersParams): Promise<SearchOrdersResponse> {
+    return this.request<SearchOrdersParams, SearchOrdersResponse>('pedidos.pesquisa', params);
+  }
+
+  getOrder(params: GetOrderParams): Promise<GetOrderResponse> {
+    return this.request<GetOrderParams, GetOrderResponse>('pedido.obter', params);
   }
 }
 
