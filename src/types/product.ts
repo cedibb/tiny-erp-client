@@ -1,6 +1,7 @@
 import { BaseResponse } from './common';
 
 export type ProductStatus = 'A' | 'I' | 'E';
+
 export type ProductVariationType = 'N' | 'P' | 'V';
 
 interface EcommerceMapping {
@@ -116,10 +117,31 @@ export interface SearchProductsParams {
 }
 
 export interface GetProductParams {
-  id: number;
+  id: string;
 }
 
-export interface SearchProductsResponse extends BaseResponse {
+export interface GetProductStockParams {
+  id: string;
+}
+
+export interface Deposit {
+  nome: string;
+  desconsiderar: string;
+  saldo: number;
+  empresa: string;
+}
+
+export interface ProductStock {
+  id: number;
+  nome: string;
+  codigo: string;
+  unidade: string;
+  saldo: number;
+  saldoReservado: number;
+  depositos: { deposito: Deposit }[];
+}
+
+export interface SearchProductsResponse {
   retorno: BaseResponse['retorno'] & {
     produtos?: Product[];
   };
@@ -129,4 +151,40 @@ export interface GetProductResponse {
   retorno: BaseResponse['retorno'] & {
     produto?: DetailedProduct;
   };
+}
+
+export interface GetProductStockResponse {
+  retorno: BaseResponse['retorno'] & {
+    produto?: ProductStock;
+  };
+}
+
+export interface GetStockUpdatesResponse {
+  retorno: BaseResponse['retorno'] & {
+    produtos?: { produto: StockUpdate }[];
+  };
+}
+
+export interface GetStockUpdatesParams {
+  dataAlteracao: string;
+  pagina?: number;
+}
+
+export interface Deposit {
+  nome: string;
+  desconsiderar: string;
+  saldo: number;
+}
+
+export interface StockUpdate {
+  id: number;
+  nome: string;
+  codigo: string;
+  unidade: string;
+  tipo_variacao: string;
+  localizacao: string;
+  data_alteracao: string;
+  saldo: number;
+  saldoReservado: number;
+  depositos: { deposito: Deposit }[];
 }

@@ -21,6 +21,10 @@ import type {
   GetInvoiceResponse,
   SearchInvoicesParams,
   SearchInvoicesResponse,
+  GetProductStockParams,
+  GetProductStockResponse,
+  GetStockUpdatesParams,
+  GetStockUpdatesResponse,
 } from './types';
 
 class TinyERPClient {
@@ -80,6 +84,14 @@ class TinyERPClient {
 
   getProduct(params: GetProductParams): Promise<GetProductResponse> {
     return this.request<GetProductParams, GetProductResponse>('produto.obter', params);
+  }
+
+  getProductStock(params: GetProductStockParams): Promise<GetProductStockResponse> {
+    return this.request<GetProductStockParams, GetProductStockResponse>('produto.obter.estoque', params);
+  }
+
+  getStockUpdates(params: GetStockUpdatesParams): Promise<GetStockUpdatesResponse> {
+    return this.request<GetStockUpdatesParams, GetStockUpdatesResponse>('lista.atualizacoes.estoque', params);
   }
 
   //ORDERS
