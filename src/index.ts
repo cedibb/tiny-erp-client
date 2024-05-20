@@ -1,1 +1,1 @@
-export { TinyERPClient } from './client';
+export { default as TinyERP } from './client';

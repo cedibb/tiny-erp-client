@@ -1,20 +1,20 @@
-# TinyERP Client
+# Tiny ERP API
 
 This project provides a TypeScript client for interacting with the TinyERP API.
 
 ## Installation
 
 ```bash
-npm i tinyerp-client
+npm i tinyerp-api
 ```
 
 ## Usage
 
 ```typescript
-const { TinyERPClient } = require('tiny-erp-client');
+import TinyERP from 'tinyerp-api';
 
 // Initialize the client with your API token
-const client = new TinyERPClient('your_api_token_here');
+const client = new TinyERP('API_TOKEN_HERE');
 
 // Example: Retrieve account information
 client.getAccountInfo().then((response) => {
@@ -36,7 +36,7 @@ client.getCustomer({ id: '123456' }).then((response) => {
 
 - ~~Account Data (Dados da conta)~~
 
-- ~~Clients and Suppliers (Clientes e Fornecedores)~~
+- ~~Customers and Suppliers (Clientes e Fornecedores)~~
 
 - Products (Produtos)
 

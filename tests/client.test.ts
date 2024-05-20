@@ -1,5 +1,5 @@
 import { describe, expect, it, jest, beforeEach } from '@jest/globals';
-import { TinyERPClient } from '../src/client';
+import TinyERP from '../src/client';
 import {
   SearchOrdersParams,
   OrderStatus,
@@ -9,9 +9,9 @@ import {
   UpdateCustomerParams,
 } from '../types';
 
-describe('TinyERPClient', () => {
+describe('TinyERP', () => {
   const mockToken = 'testToken';
-  const client = new TinyERPClient(mockToken);
+  const client = new TinyERP(mockToken);
 
   beforeEach(() => {
     jest.spyOn(global, 'fetch').mockClear();

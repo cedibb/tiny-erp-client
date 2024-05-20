@@ -1,5 +1,5 @@
 {
-  "name": "tinyerp-client",
+  "name": "tinyerp-api",
   "version": "0.0.3",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -10,7 +10,13 @@
     "typecheck": "tsc --noEmit",
     "test": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "tiny-erp",
+    "tiny-erp-api",
+    "tiny-erp-client",
+    "tiny-erp-library",
+    "tiny-erp-wrapper"
+  ],
   "author": "Carlos Dibb",
   "license": "MIT",
   "description": "",

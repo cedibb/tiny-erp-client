@@ -27,7 +27,7 @@ import type {
   GetStockUpdatesResponse,
 } from '../types';
 
-class TinyERPClient {
+class TinyERP {
   private token: string;
   private baseUrl: string = 'https://api.tiny.com.br/api2';
 
@@ -113,4 +113,4 @@ class TinyERPClient {
   }
 }
 
-export { TinyERPClient };
+export default TinyERP;
