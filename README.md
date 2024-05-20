@@ -13,25 +13,25 @@ npm i tinyerp-client
 ```typescript
 import { TinyERPClient } from 'tinyerp-client';
 
-const apiClient = new TinyERPClient('your-token-here');
+const client = new TinyERPClient('your-token-here');
 
 // Get account info
-const accountInfo = await apiClient.getAccountInfo();
+const accountInfo = await client.getAccountInfo();
 
 // Search for orders
-const orders = await apiClient.searchOrders({ ... });
+const orders = await client.searchOrders({ ... });
 
 // Search for clients
-const clients = await apiClient.searchClients({ ... });
+const clients = await client.searchClients({ ... });
 
 // Get client information
-const clientInfo = await apiClient.getClient({ ... });
+const clientInfo = await client.getClient({ ... });
 
 // Add a new client
-const newClient = await apiClient.addClient({ ... });
+const newClient = await client.addClient({ ... });
 
 // Update an existing client
-const updatedClient = await apiClient.updateClient({ ... });
+const updatedClient = await client.updateClient({ ... });
 ```
 
 ## Service Implementation Progress
