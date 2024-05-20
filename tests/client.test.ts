@@ -1,5 +1,5 @@
-import { TinyERPClient } from '../client';
 import { describe, expect, it, jest, beforeEach } from '@jest/globals';
+import { TinyERPClient } from '../src/client';
 import {
   SearchOrdersParams,
   OrderStatus,

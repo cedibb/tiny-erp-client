@@ -25,7 +25,7 @@ import type {
   GetProductStockResponse,
   GetStockUpdatesParams,
   GetStockUpdatesResponse,
-} from './types';
+} from '../types';
 
 class TinyERPClient {
   private token: string;
