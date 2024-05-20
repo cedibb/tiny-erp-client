@@ -11,27 +11,27 @@ npm i tinyerp-client
 ## Usage
 
 ```typescript
-import { TinyERPClient } from 'tinyerp-client';
+const { TinyERPClient } = require('tiny-erp-client');
 
-const client = new TinyERPClient('your-token-here');
+// Initialize the client with your API token
+const client = new TinyERPClient('your_api_token_here');
 
-// Get account info
-const accountInfo = await client.getAccountInfo();
+// Example: Retrieve account information
+client.getAccountInfo().then((response) => {
+  console.log('Account Information:', response);
+});
 
-// Search for orders
-const orders = await client.searchOrders({ ... });
+// Example: Search for customers
 
-// Search for clients
-const clients = await client.searchClients({ ... });
+client.searchCustomers({ pesquisa: 'John Doe' }).then((response) => {
+  console.log('Search Results:', response);
+});
 
-// Get client information
-const clientInfo = await client.getClient({ ... });
+// Example: Get detailed information about a customer
 
-// Add a new client
-const newClient = await client.addClient({ ... });
-
-// Update an existing client
-const updatedClient = await client.updateClient({ ... });
+client.getCustomer({ id: '123456' }).then((response) => {
+  console.log('Customer Details:', response);
+});
 ```
 
 ## Service Implementation Progress
