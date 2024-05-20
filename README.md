@@ -22,13 +22,11 @@ client.getAccountInfo().then((response) => {
 });
 
 // Example: Search for customers
-
 client.searchCustomers({ pesquisa: 'John Doe' }).then((response) => {
   console.log('Search Results:', response);
 });
 
 // Example: Get detailed information about a customer
-
 client.getCustomer({ id: '123456' }).then((response) => {
   console.log('Customer Details:', response);
 });
