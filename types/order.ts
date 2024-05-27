@@ -464,6 +464,6 @@ export interface SearchOrdersResponse {
 
 export interface GetOrderResponse {
   retorno: BaseResponse['retorno'] & {
-    order?: DetailedOrder;
+    pedido?: DetailedOrder;
   };
 }
