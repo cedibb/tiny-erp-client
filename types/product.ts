@@ -143,7 +143,7 @@ export interface ProductStock {
 
 export interface SearchProductsResponse {
   retorno: BaseResponse['retorno'] & {
-    produtos?: Product[];
+    produtos?: { produto: Product }[];
   };
 }
 
