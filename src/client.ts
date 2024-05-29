@@ -45,11 +45,11 @@ class TinyERP {
 
       const response = await fetch(`${this.baseUrl}/${endpoint}.php?${params}`);
 
-      const responseBody: R = await response.json();
-      if (responseBody.retorno.status === 'Erro') {
-        const errorMessage = responseBody.retorno.erros!.map((e) => e.erro).join(', ');
-        throw new Error(errorMessage);
+      if (!response.ok) {
+        throw new Error(`Failed to make request: ${response.statusText}`);
       }
+
+      const responseBody: R = await response.json();
 
       return responseBody;
     } catch (error) {
