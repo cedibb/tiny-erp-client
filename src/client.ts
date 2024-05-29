@@ -25,6 +25,8 @@ import type {
   GetProductStockResponse,
   GetStockUpdatesParams,
   GetStockUpdatesResponse,
+  RegisterInvoiceStockParams,
+  RegisterInvoiceStockResponse,
 } from '../types';
 
 class TinyERP {
@@ -110,6 +112,13 @@ class TinyERP {
 
   getInvoice(params: GetInvoiceParams): Promise<GetInvoiceResponse> {
     return this.request<GetInvoiceParams, GetInvoiceResponse>('nota.fiscal.obter', params);
+  }
+
+  registerInvoiceStock(params: RegisterInvoiceStockParams): Promise<RegisterInvoiceStockResponse> {
+    return this.request<RegisterInvoiceStockParams, RegisterInvoiceStockResponse>(
+      'nota.fiscal.registrar.estoque',
+      params,
+    );
   }
 }
 

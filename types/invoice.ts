@@ -19,6 +19,10 @@ export interface GetInvoiceParams {
   id: string;
 }
 
+export interface RegisterInvoiceStockParams {
+  id: string;
+}
+
 interface DeliveryAddress {
   tipo_pessoa?: string;
   cpf_cnpj?: string;
@@ -75,6 +79,10 @@ export interface GetInvoiceResponse {
   };
 }
 
+export interface RegisterInvoiceStockResponse {
+  retorno: BaseResponse['retorno'];
+}
+
 interface Customer {
   nome: string;
   tipo_pessoa?: string;
@@ -116,7 +124,7 @@ interface FreightMethod {
 
 interface Installment {
   days?: number;
-  date?: string; // or Date if you prefer
+  date?: string;
   amount?: number;
   notes?: string;
   paymentMethod: string;
@@ -129,7 +137,7 @@ interface Marker {
   cor?: string;
 }
 
-interface Intermediador {
+interface Intermediator {
   nome: string;
   cnpj: string;
   cnpjPagamento?: string;
@@ -144,8 +152,8 @@ interface DetailedInvoice {
   serie: number;
   numero: number;
   numero_ecommerce: string;
-  data_emissao?: string; // or Date if you prefer
-  data_saida?: string; // or Date if you prefer
+  data_emissao?: string;
+  data_saida?: string;
   hora_saida?: string;
   cliente?: Customer;
   endereco_entrega?: DeliveryAddress;
@@ -190,5 +198,5 @@ interface DetailedInvoice {
   obs?: string;
   chave_acesso?: string;
   marcadores?: Marker[];
-  intermediador?: Intermediador;
+  intermediador?: Intermediator;
 }
