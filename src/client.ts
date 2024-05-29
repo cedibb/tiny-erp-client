@@ -115,10 +115,7 @@ class TinyERP {
   }
 
   registerInvoiceStock(params: RegisterInvoiceStockParams): Promise<RegisterInvoiceStockResponse> {
-    return this.request<RegisterInvoiceStockParams, RegisterInvoiceStockResponse>(
-      'nota.fiscal.registrar.estoque',
-      params,
-    );
+    return this.request<RegisterInvoiceStockParams, RegisterInvoiceStockResponse>('nota.fiscal.lancar.estoque', params);
   }
 }
 
