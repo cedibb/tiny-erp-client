@@ -27,6 +27,8 @@ import type {
   GetStockUpdatesResponse,
   RegisterInvoiceStockParams,
   RegisterInvoiceStockResponse,
+  RegisterOrderStockParams,
+  RegisterOrderStockResponse,
 } from '../types';
 
 class TinyERP {
@@ -103,6 +105,10 @@ class TinyERP {
 
   getOrder(params: GetOrderParams): Promise<GetOrderResponse> {
     return this.request<GetOrderParams, GetOrderResponse>('pedido.obter', params);
+  }
+
+  registerOrdereStock(params: RegisterOrderStockParams): Promise<RegisterOrderStockResponse> {
+    return this.request<RegisterOrderStockParams, RegisterOrderStockResponse>('pedido.lancar.estoque', params);
   }
 
   //INVOICES

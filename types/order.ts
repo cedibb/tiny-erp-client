@@ -339,6 +339,10 @@ export interface GetOrderParams {
   id: string;
 }
 
+export interface RegisterOrderStockParams {
+  id: string;
+}
+
 interface DetailedOrder {
   id?: number;
   numero?: number;
@@ -466,4 +470,8 @@ export interface GetOrderResponse {
   retorno: BaseResponse['retorno'] & {
     pedido?: DetailedOrder;
   };
+}
+
+export interface RegisterOrderStockResponse {
+  retorno: BaseResponse['retorno'];
 }
