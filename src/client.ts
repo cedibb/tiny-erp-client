@@ -107,7 +107,7 @@ class TinyERP {
     return this.request<GetOrderParams, GetOrderResponse>('pedido.obter', params);
   }
 
-  registerOrdereStock(params: RegisterOrderStockParams): Promise<RegisterOrderStockResponse> {
+  registerOrderStock(params: RegisterOrderStockParams): Promise<RegisterOrderStockResponse> {
     return this.request<RegisterOrderStockParams, RegisterOrderStockResponse>('pedido.lancar.estoque', params);
   }
 
